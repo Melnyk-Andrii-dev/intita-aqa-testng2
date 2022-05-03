@@ -11,7 +11,7 @@ public class AppTest
 {
 
     @Test
-    public void test(){
+    public void testSample(){
         Assert.assertTrue(true);
     }
 
