@@ -1,9 +1,36 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-
-<suite name="Regression TestSuite">
-    <test name="GroupsDemo">
+<suite name="TestSuite" parallel="tests" thread-count="2">
+    <test name="FireFox Test">
+        <parameter name="platform" value="Windows"/>
+        <parameter name="browser" value="firefox"/>
+        <parameter name="version" value="latest"/>
+        <parameter name="viewport" value="1920x1080"/>
+        <parameter name="url" value="https://qa.intita.com/"/>
         <classes>
-            <class name="org.intita.AppTest"></class>
+            <class name="org.intita.tests.LoginTest">
+            </class>
+        </classes>
+    </test>
+    <test name="Chrome Test">
+        <parameter name="platform" value="Windows"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="version" value="latest"/>
+        <parameter name="viewport" value="1920x1080"/>
+        <parameter name="url" value="https://qa.intita.com/"/>
+        <classes>
+            <class name="org.intita.tests.LoginTest">
+            </class>
+        </classes>
+    </test>
+    <test name="Safari Test">
+        <parameter name="platform" value="Mac"/>
+        <parameter name="browser" value="safari"/>
+        <parameter name="version" value="latest"/>
+        <parameter name="viewport" value="1920x1440"/>
+        <parameter name="url" value="https://qa.intita.com/"/>
+        <classes>
+            <class name="org.intita.tests.LoginTest">
+            </class>
         </classes>
     </test>
 </suite>
