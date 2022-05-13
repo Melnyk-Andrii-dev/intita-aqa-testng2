@@ -17,7 +17,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "credentialsTestData", dataProviderClass = LoginTestData.class)
-    public void credentialsTest(String email, String password, String expectedErrorMessage) {
+    public void loginFormTest(String email, String password, String expectedErrorMessage) {
         loginPage.inputEmailToEmailField(email);
         loginPage.inputPasswordToPasswordField(password);
         loginPage.clickSignInButton();

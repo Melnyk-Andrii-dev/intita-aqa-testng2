@@ -11,4 +11,6 @@ public class BasePage extends AbstractPage {
     @Getter
     @Accessors(fluent = true)
     protected HeaderComponent headerComponent = new HeaderComponent();
+    protected DashboardSidebarComponent dashboardSidebarComponent = new DashboardSidebarComponent();
+    protected DashboardHeaderComponent dashboardHeaderComponent = new DashboardHeaderComponent();
 }

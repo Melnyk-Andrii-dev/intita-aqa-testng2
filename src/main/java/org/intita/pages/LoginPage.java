@@ -1,5 +1,8 @@
 package org.intita.pages;
 
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
+
 public class LoginPage extends BasePage {
     private static final String SIGN_IN_BUTTON = "//button[text()='Sign in ' or text()='Увійти ']";
     private static final String SIGN_UP = "//div[@class='modal-link']";
@@ -11,6 +14,10 @@ public class LoginPage extends BasePage {
 
     public void clickSignInButton() {
         findElementByXPath(SIGN_IN_BUTTON).click();
+        if(((RemoteWebDriver)(getDriverThreadLocal())).getCapabilities()
+                .getBrowserName().equalsIgnoreCase("Safari")){
+                waitForVisibilityOfAllElements(2);
+        }
     }
 
     public void clickSignUpButton() {

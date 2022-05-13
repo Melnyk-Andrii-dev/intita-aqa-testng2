@@ -11,7 +11,7 @@ public class HeaderComponent extends AbstractPage {
     private static final String HEADER_LANGUAGE_BUTTON = "//div[@id='dropdownLgButton']";
     private static final String LANGUAGE_DROPDOWN_BUTTON = "//a[text()='%s']";
     private static final String HEADER_LOGIN_BUTTON = "//button[text()='Log in' or text()='Вхід']";
-    private static final String AVATAR_BUTTON = "//div/child::img[@title='avatar']";
+    private static final String AVATAR_BUTTON = "//div/img[@title='avatar']";
     private static final String PROJECT_DROPDOWN_MENU_BUTTON = "//li[@class='project-dropdown-menu__item']/child::a[text()='%s']";
     private static final String DROPDOWN_PROFILE_BUTTON = "//div[@id='dropdownProfileButton']";
     private static final String DASHBOARD_DROPDOWN_MENU_BUTTON = "//li[@class='project-dropdown-menu__item']/a[contains(@href, 'cabinet')]";

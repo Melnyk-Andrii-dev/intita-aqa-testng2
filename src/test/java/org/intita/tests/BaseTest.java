@@ -16,18 +16,13 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    private static final String SAUCELAB_ACCESS = "https://oauth-sao2099-6f890:945bc1c2-dda6-4ef2-ab8e-a1855009d2b7@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
+    private static final String SAUCELAB_ACCESS = "https://oauth-testsl2948-04053:2377be71-3c64-4e6e-bdc6-15b81241f55e@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
 
     @Getter
     private WebDriver driver;
 
     private WebDriver inicializeDriver(String platform, String browser, String version, String viewport)
             throws MalformedURLException {
-        WebDriver driver = null;
-        Map<String, Object> sauceOptions = new HashMap<>();
-        sauceOptions.put("screenResolution", "1920x1080");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setCapability("sauce:options", sauceOptions);
         Capabilities capabilities = SetupUtil.getCapabilities(platform, browser, version, viewport);
         driver = new RemoteWebDriver(new URL(SAUCELAB_ACCESS), capabilities);
         return driver;
