@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    private static final String SAUCELAB_ACCESS = "https://oauth-testsl2948-04053:2377be71-3c64-4e6e-bdc6-15b81241f55e@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
+    private static final String SAUCELAB_ACCESS = "https://oauth-testdddsfgh-25414:6b189439-f0d2-4446-a290-ef6ac3628542@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
 
     @Getter
     private WebDriver driver;

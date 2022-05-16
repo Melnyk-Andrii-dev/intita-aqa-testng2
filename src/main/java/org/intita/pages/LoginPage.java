@@ -1,5 +1,6 @@
 package org.intita.pages;
 
+import org.intita.annotations.SafariUnstable;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -11,13 +12,11 @@ public class LoginPage extends BasePage {
     private static final String VERIFY_MESSAGE = "//div[@class='infoblock']";
     private static final String INCORRECT_EMAIL_OR_PASSWORD_DISPLAYED_MESSAGE = "//input[@id='passwordSignIn']//following-sibling::div[@class='project-form-element__error']";
 
-
+@SafariUnstable
     public void clickSignInButton() {
+        System.out.println("!!!!!FIRST METHOD!!!!!!");
         findElementByXPath(SIGN_IN_BUTTON).click();
-        if(((RemoteWebDriver)(getDriverThreadLocal())).getCapabilities()
-                .getBrowserName().equalsIgnoreCase("Safari")){
-                waitForVisibilityOfAllElements(2);
-        }
+//        waitForSafari();
     }
 
     public void clickSignUpButton() {

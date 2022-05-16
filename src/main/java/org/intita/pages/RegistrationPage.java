@@ -1,5 +1,6 @@
 package org.intita.pages;
 
+import org.intita.annotations.SafariUnstable;
 import org.intita.enums.elements.registrationPage.IncorrectInputFieldMessage;
 import org.intita.enums.elements.registrationPage.RegistrationCredentials;
 import org.intita.enums.elements.registrationPage.SocialMediaRegistration;
@@ -34,9 +35,10 @@ public class RegistrationPage extends BasePage {
         return isElementPresent(String.format(INCORRECT_INPUT_FIELD_MESSAGE, message.toString()));
     }
 
+    @SafariUnstable
     public void clickSocialMediaRegistration(SocialMediaRegistration button) {
         findElementByXPath(String.format(SOCIAL_MEDIA_REGISTRATION, button.toString())).click();
-        waitForVisibilityOfAllElements(2);
+//        waitForSafari();
     }
 
 

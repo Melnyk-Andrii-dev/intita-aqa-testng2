@@ -42,8 +42,6 @@ public class RegistrationTest extends BaseTest {
     public void registrationWith3PITest(SocialMediaRegistration socialMedia, String expectedUrl) {
         registrationPage.clickSocialMediaRegistration(socialMedia);
         String actualURL = socialMediaRegistrationPage.getPageURL();
-        System.out.println("ACTUAL URL: " + actualURL);
-        System.out.println("EXPECTED URL: " + expectedUrl);
         Assert.assertTrue(actualURL.contains(expectedUrl));
     }
 
