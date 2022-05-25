@@ -159,9 +159,6 @@ public class EditProfilePage extends BasePage {
                 field.equals(MainTextInput.CURRENT_JOB.toString()) ||
                 field.equals(MainTextInput.PREVIOUS_JOB.toString())) {
             wait(3);
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-//            findElementByXPath(String.format(MAIN_FORM_TEXTAREA_INPUTFIELDS, field))
-//                    .sendKeys(Keys.CONTROL, "a", Keys.DELETE);
             findElementByXPath(String.format(MAIN_FORM_TEXTAREA_INPUTFIELDS, field)).clear();
             wait(3);
             return;
