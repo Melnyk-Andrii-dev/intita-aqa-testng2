@@ -7,8 +7,9 @@
         <parameter name="viewport" value="1920x1080"/>
         <parameter name="url" value="https://qa.intita.com/"/>
         <classes>
-            <class name="org.intita.tests.LoginTest">
-            </class>
+            <class name="org.intita.tests.ProfileTest"/>
+            <class name="org.intita.tests.LoginTest"/>
+            <class name="org.intita.tests.RegistrationTest"/>
         </classes>
     </test>
     <test name="Chrome Test">
@@ -18,19 +19,21 @@
         <parameter name="viewport" value="1920x1080"/>
         <parameter name="url" value="https://qa.intita.com/"/>
         <classes>
-            <class name="org.intita.tests.LoginTest">
-            </class>
+            <class name="org.intita.tests.ProfileTest"/>
+            <class name="org.intita.tests.LoginTest"/>
+            <class name="org.intita.tests.RegistrationTest"/>
         </classes>
     </test>
     <test name="Safari Test">
         <parameter name="platform" value="Mac"/>
         <parameter name="browser" value="safari"/>
-        <parameter name="version" value="latest"/>
+        <parameter name="version" value="14"/>
         <parameter name="viewport" value="1920x1440"/>
         <parameter name="url" value="https://qa.intita.com/"/>
         <classes>
-            <class name="org.intita.tests.LoginTest">
-            </class>
+            <class name="org.intita.tests.ProfileTest"/>
+            <class name="org.intita.tests.LoginTest"/>
+            <class name="org.intita.tests.RegistrationTest"/>
         </classes>
     </test>
 </suite>

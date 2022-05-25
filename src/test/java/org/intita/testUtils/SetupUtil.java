@@ -10,6 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SetupUtil {
+
+    private static final String DEFAULT_WINDOWS_VERSION = "Windows 10";
+    private static final String DEFAULT_MAC_VERSION = "macOS 11.00";
+
     public static Capabilities getCapabilities(String platform, String browser, String version, String viewPort) {
         Map<String, Object> sauceOptions;
         switch (browser) {
@@ -20,10 +24,10 @@ public class SetupUtil {
                 chromeOptions.setCapability("sauce:options", sauceOptions);
                 chromeOptions.setCapability("browserVersion", version);
                 if (platform.equalsIgnoreCase("Windows")) {
-                    chromeOptions.setCapability("platformName", "Windows 10");
+                    chromeOptions.setCapability("platformName", DEFAULT_WINDOWS_VERSION);
                 }
                 if (platform.equalsIgnoreCase("Mac")) {
-                    chromeOptions.setCapability("platformName", "macOS 11.00");
+                    chromeOptions.setCapability("platformName", DEFAULT_MAC_VERSION);
                 }
                 return chromeOptions;
             case "firefox":
@@ -33,10 +37,10 @@ public class SetupUtil {
                 firefoxOptions.setCapability("sauce:options", sauceOptions);
                 firefoxOptions.setCapability("browserVersion", version);
                 if (platform.equalsIgnoreCase("Windows")) {
-                    firefoxOptions.setCapability("platformName", "Windows 10");
+                    firefoxOptions.setCapability("platformName", DEFAULT_WINDOWS_VERSION);
                 }
                 if (platform.equalsIgnoreCase("Mac")) {
-                    firefoxOptions.setCapability("platformName", "macOS 11.00");
+                    firefoxOptions.setCapability("platformName", DEFAULT_MAC_VERSION);
                 }
                 return firefoxOptions;
             case "edge":
@@ -46,10 +50,10 @@ public class SetupUtil {
                 edgeOptions.setCapability("sauce:options", sauceOptions);
                 edgeOptions.setCapability("browserVersion", version);
                 if (platform.equalsIgnoreCase("Windows")) {
-                    edgeOptions.setCapability("platformName", "Windows 10");
+                    edgeOptions.setCapability("platformName", DEFAULT_WINDOWS_VERSION);
                 }
                 if (platform.equalsIgnoreCase("Mac")) {
-                    edgeOptions.setCapability("platformName", "macOS 11.00");
+                    edgeOptions.setCapability("platformName", DEFAULT_MAC_VERSION);
                 }
                 return edgeOptions;
             case "safari":
@@ -59,10 +63,10 @@ public class SetupUtil {
                 safariOptions.setCapability("sauce:options", sauceOptions);
                 safariOptions.setCapability("browserVersion", version);
                 if (platform.equalsIgnoreCase("Windows")) {
-                    safariOptions.setCapability("platformName", "Windows 10");
+                    safariOptions.setCapability("platformName", DEFAULT_WINDOWS_VERSION);
                 }
                 if (platform.equalsIgnoreCase("Mac")) {
-                    safariOptions.setCapability("platformName", "macOS 11.00");
+                    safariOptions.setCapability("platformName", DEFAULT_MAC_VERSION);
                 }
                 return safariOptions;
             default:

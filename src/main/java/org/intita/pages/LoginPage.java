@@ -1,5 +1,8 @@
 package org.intita.pages;
 
+import org.intita.annotations.FirefoxUnstable;
+import org.intita.annotations.SafariUnstable;
+
 public class LoginPage extends BasePage {
     private static final String SIGN_IN_BUTTON = "//button[text()='Sign in ' or text()='Увійти ']";
     private static final String SIGN_UP = "//div[@class='modal-link']";
@@ -8,7 +11,8 @@ public class LoginPage extends BasePage {
     private static final String VERIFY_MESSAGE = "//div[@class='infoblock']";
     private static final String INCORRECT_EMAIL_OR_PASSWORD_DISPLAYED_MESSAGE = "//input[@id='passwordSignIn']//following-sibling::div[@class='project-form-element__error']";
 
-
+    @SafariUnstable
+    @FirefoxUnstable
     public void clickSignInButton() {
         findElementByXPath(SIGN_IN_BUTTON).click();
     }

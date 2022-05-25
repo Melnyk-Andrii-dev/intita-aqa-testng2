@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -80,6 +81,20 @@ public class AbstractPage {
 
     public void reloadPage() {
         getDriverThreadLocal().navigate().refresh();
+    }
+
+    public void waitForSafariOriginal(){
+        if(((RemoteWebDriver)(getDriverThreadLocal())).getCapabilities()
+                .getBrowserName().equalsIgnoreCase("Safari")){
+            waitForVisibilityOfAllElements(3);
+        }
+    }
+
+    public void waitForFirefoxOriginal(){
+        if(((RemoteWebDriver)(getDriverThreadLocal())).getCapabilities()
+                .getBrowserName().equalsIgnoreCase("Firefox")){
+            waitForVisibilityOfAllElements(3);
+        }
     }
 
 }
