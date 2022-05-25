@@ -11,13 +11,13 @@ import java.util.Arrays;
 import java.util.Optional;
 
 @Aspect
-public class SafariFixAspect {
+public class FirefoxFixAspect {
 
-    @Pointcut("@annotation(org.intita.annotations.SafariUnstable)")
-    public void waitForSafari() {
+    @Pointcut("@annotation(org.intita.annotations.FirefoxUnstable)")
+    public void waitForFirefox() {
     }
 
-    @After("waitForSafari()")
+    @After("waitForFirefox()")
     public void test(JoinPoint joinPoint) {
         Object originalObject = null;
         Optional<Method> originalMethod = Optional.empty();
@@ -27,7 +27,7 @@ public class SafariFixAspect {
                             .getSuperclass()
                             .getSuperclass()
                             .getMethods())
-                    .filter(method -> method.getName().equalsIgnoreCase("waitForSafariOriginal"))
+                    .filter(method -> method.getName().equalsIgnoreCase("waitForFirefoxOriginal"))
                     .findFirst();
         } catch (Exception e) {
             e.printStackTrace();

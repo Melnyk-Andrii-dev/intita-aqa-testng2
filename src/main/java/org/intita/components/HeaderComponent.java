@@ -52,7 +52,7 @@ public class HeaderComponent extends AbstractPage {
     }
 
     public Boolean isAvatarButtonDisplayed () {
-        return findElementByXPath(AVATAR_BUTTON).isDisplayed();
+        return isElementPresentCustomized(AVATAR_BUTTON);
     }
 
     public void clickProjectDropdownMenuButton(ProjectDropdownMenuButton button){

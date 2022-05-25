@@ -7,7 +7,12 @@ import org.intita.enums.elements.editProfilePage.MainTextInput;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.KeyInput;
+
+import java.awt.*;
 
 public class EditProfilePage extends BasePage {
     private static final String MAIN_FORM_TEXT_INPUTFIELDS = "//input[@id='%s']";
@@ -19,6 +24,7 @@ public class EditProfilePage extends BasePage {
     private static final String FIRSTDAY_IN_DATEPICKER = "//span[contains(@class, 'cell') and text()='1']";
     private static final String MAIN_FORM_SELECTORS = "//label[@for='%s']//parent::div//descendant::input";
     private static final String MAIN_FORM_SELECTORS_CLICKAREA = "//label[@for='%s']//parent::div//div[@class='multiselect__select']";
+    private static final String MAIN_FORM_SELECTOR_INPUT = "//label[@for='%s']//parent::div//div[@class='multiselect__select']//following-sibling::div//input";
     private static final String CHANGE_PASSWORD_BUTTON = "//span[contains(@data-target, 'changePassword')]";
     private static final String CHANGE_PASSWORD_INDICATOR = "//div[@id='changePasswordModal']";
     private static final String CHANGE_PASSWORD_POPUP_INPUTFIELDS = "//div[@id='changePasswordModal']//input[@name='%s']";
@@ -36,8 +42,8 @@ public class EditProfilePage extends BasePage {
             " and @value='%s']//parent::label";
     private static final String SUBMIT_BUTTON = "//button[contains(@class, 'btn-submit')]";
 
-    Actions actions = new Actions(getDriverThreadLocal());
-    JavascriptExecutor javascriptExecutor = (JavascriptExecutor) getDriverThreadLocal();
+    Actions actions;
+    JavascriptExecutor javascriptExecutor;
 
     public void inputMainFormTextFields(String field, String data) {
         if (field.equals(MainTextInput.ABOUTME.toString()) ||
@@ -59,17 +65,19 @@ public class EditProfilePage extends BasePage {
     }
 
     public void selectMainFormSelectors(String selector, String data) {
-        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",
-                getDriverThreadLocal().findElement(By.xpath(String.format(MAIN_FORM_SELECTORS_CLICKAREA, selector))));
+        javascriptExecutor = (JavascriptExecutor) getDriverThreadLocal();
+        actions = new Actions(getDriverThreadLocal());
+        WebElement selectorElement = findElementByXPath(String.format(MAIN_FORM_SELECTORS_CLICKAREA, selector));
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();", selectorElement);
         waitForVisibilityOfAllElements(2);
-        actions.click(getDriverThreadLocal().findElement
-                (By.xpath(String.format(MAIN_FORM_SELECTORS_CLICKAREA, selector)))).build().perform();
+        selectorElement.click();
         waitForVisibilityOfAllElements(2);
-        actions.sendKeys(data, Keys.ENTER).build().perform();
+        findElementByXPath(String.format(MAIN_FORM_SELECTOR_INPUT, selector)).sendKeys(data, Keys.ENTER);
         waitForVisibilityOfAllElements(2);
     }
 
     public void selectFirstDayOfCurrentMonthAsDOB() {
+        javascriptExecutor = (JavascriptExecutor) getDriverThreadLocal();
         javascriptExecutor.executeScript("arguments[0].scrollIntoView();",
                 findElementByXPath(DOB_DATEPICKER));
         waitForClickabilityOfElement(DATE);
@@ -86,6 +94,7 @@ public class EditProfilePage extends BasePage {
     }
 
     public void clickChangePassword() {
+        javascriptExecutor = (JavascriptExecutor) getDriverThreadLocal();
         javascriptExecutor.executeScript("arguments[0].scrollIntoView();",
                 findElementByXPath(CHANGE_PASSWORD_BUTTON));
         waitForVisibilityOfAllElements(2);
@@ -122,6 +131,8 @@ public class EditProfilePage extends BasePage {
     }
 
     public void clickChangeEmail() {
+        javascriptExecutor = (JavascriptExecutor) getDriverThreadLocal();
+        actions = new Actions(getDriverThreadLocal());
         javascriptExecutor.executeScript("arguments[0].scrollIntoView();", findElementByXPath(CHANGE_EMAIL_BUTTON));
         waitForVisibilityOfAllElements(2);
         actions.click(findElementByXPath(CHANGE_EMAIL_BUTTON)).build().perform();
@@ -147,11 +158,14 @@ public class EditProfilePage extends BasePage {
         if (field.equals(MainTextInput.ABOUTME.toString()) ||
                 field.equals(MainTextInput.CURRENT_JOB.toString()) ||
                 field.equals(MainTextInput.PREVIOUS_JOB.toString())) {
-            findElementByXPath(String.format(MAIN_FORM_TEXTAREA_INPUTFIELDS, field))
-                    .sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+            wait(3);
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+//            findElementByXPath(String.format(MAIN_FORM_TEXTAREA_INPUTFIELDS, field))
+//                    .sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+            findElementByXPath(String.format(MAIN_FORM_TEXTAREA_INPUTFIELDS, field)).clear();
+            wait(3);
             return;
         }
-        findElementByXPath(String.format("//input[@id='%s']", field))
-                .sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+        findElementByXPath(String.format("//input[@id='%s']", field)).clear();
     }
 }

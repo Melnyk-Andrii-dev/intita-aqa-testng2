@@ -26,7 +26,7 @@ public class ProfilePage extends BasePage {
     private static final String SKYPE = "//div[@id='collapseUserData']//p[contains(text(), 'Skype')]//following-sibling::p[1]";
     private static final String PREVJOB = "//div[@id='collapseUserData']//div[8]//p[2]";
     private static final String CURRJOB = "//div[@id='collapseUserData']//div[9]//p[2]";
-    private static final String EDUCFORM = "//div[@id='collapseUserData']//p[contains(text(), 'Форма') or contains(text(), 'Learning')]";
+    private static final String EDUCFORM = "//div[@id='collapseUserData']//p[contains(text(), 'Форма') or contains(text(), 'Learning')]//following-sibling::p";
 
     private static final String FACEBOOK_LINK = "//div[@class='networks']//a[contains(text(), 'facebook')]";
     private static final String LINKEDIN_LINK = "//div[@class='networks']//a[contains(text(), 'linkedin')]";

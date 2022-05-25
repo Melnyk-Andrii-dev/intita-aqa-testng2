@@ -5,18 +5,15 @@ import org.intita.pages.BasePage;
 import org.intita.testUtils.SetupUtil;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    private static final String SAUCELAB_ACCESS = "https://oauth-testdddsfgh-25414:6b189439-f0d2-4446-a290-ef6ac3628542@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
+    private static final String SAUCELAB_ACCESS = "https://oauth-khiuhuvtt-81c5b:ce531912-9aff-4c40-811a-0e9f34df3019@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
 
     @Getter
     private WebDriver driver;

@@ -1,7 +1,6 @@
 package org.intita.tests;
 
 import org.intita.pages.LoginPage;
-import org.intita.tests.BaseTest;
 import org.intita.testsData.LoginTestData;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -28,5 +27,4 @@ public class LoginTest extends BaseTest {
             Assert.assertEquals(loginPage.getIncorrectEmailOrPasswordDisplayedMessage(), expectedErrorMessage);
         }
     }
-
 }

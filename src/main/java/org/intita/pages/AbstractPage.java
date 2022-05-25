@@ -86,7 +86,14 @@ public class AbstractPage {
     public void waitForSafariOriginal(){
         if(((RemoteWebDriver)(getDriverThreadLocal())).getCapabilities()
                 .getBrowserName().equalsIgnoreCase("Safari")){
-            waitForVisibilityOfAllElements(2);
+            waitForVisibilityOfAllElements(3);
+        }
+    }
+
+    public void waitForFirefoxOriginal(){
+        if(((RemoteWebDriver)(getDriverThreadLocal())).getCapabilities()
+                .getBrowserName().equalsIgnoreCase("Firefox")){
+            waitForVisibilityOfAllElements(3);
         }
     }
 
